@@ -40,3 +40,11 @@
       -if alert
         .alert.alert-danger= alert
       = yield
+
+    .footer
+      .container-fluid
+        %p
+          =image_tag "osi_standard_logo.png", size: "50x50"
+          Source code:
+          =link_to "https://github.com/fikriauliya/prodankontra", 'https://github.com/fikriauliya/prodankontra'
+          | 2014
