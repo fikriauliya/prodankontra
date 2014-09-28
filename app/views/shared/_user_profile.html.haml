@@ -1,6 +1,10 @@
 - unless signed_in?
   =render "devise/sessions/new"
 - else
-  .well
-    %h4= current_user.name
-    %b My Point: 0
+  .panel.panel-primary
+    .panel-heading
+      %span.glyphicon.glyphicon-user
+      %b= current_user.name
+    .panel-body
+      Point:
+      0

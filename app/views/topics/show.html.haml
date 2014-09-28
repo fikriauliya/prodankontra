@@ -1,10 +1,6 @@
 .row{'ng-app' => 'topicApp'}
   .col-sm-10
     %h3= @topic.title
-    %p= @topic.description
-    %small
-      Created by
-      %b= @topic.user.name
     %hr
     %div{'ng-controller' => 'IndexOpinionController as vm'}
       .col-sm-6
@@ -30,3 +26,14 @@
           =render partial: "opinions/show"
   .col-md-2
     =render partial: 'shared/user_profile'
+    .panel.panel-primary
+      .panel-heading
+        %span.glyphicon.glyphicon-th-large
+        %b Topic information
+      .panel-body
+        %p
+          =@topic.description
+        %hr
+        Created by
+        %br
+        %b= @topic.user.name
