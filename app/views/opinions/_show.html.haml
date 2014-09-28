@@ -8,10 +8,14 @@
         0
         %br
         Votes
-    .pull-left
+    %div
       %p
         Penulis:
         %b
           {{opinion.author}}
-      %p
-        {{opinion.content}}
+      %p.with-newline<
+        {{opinion.content | limitTo: 1000}}
+      .pull-right
+        %a{'ng-click' => 'vm.showFullOpinion(opinion)', 'class' => 'btn btn-info btn-sm'}
+          %span.glyphicon.glyphicon-search
+          Read more...
