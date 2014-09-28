@@ -1,0 +1,6 @@
+- unless signed_in?
+  =render "devise/sessions/new"
+- else
+  .well
+    %h4= current_user.name
+    %b My Point: 0

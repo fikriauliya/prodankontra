@@ -1,21 +1,27 @@
 .row
-  .pull-right
-    = link_to 'New Topic', new_topic_path, 'class'=> 'btn btn-primary'
 
-- @topics.each do |topic|
-  .row
-    .pull-left.vote-counter
-      %b
-        0
-        %br
-        votes
-    .pull-left
-      %h4
-        =link_to topic.title, topic_path(topic)
-      %p= topic.description
-      %small
-        Created by
-        %b= topic.user.name
-  .row
-    .col-sm-12
-      %hr
+.row
+  .col-sm-10
+    .row
+      .pull-right{style: 'margin-right: 10px'}
+        = link_to 'New Topic', new_topic_path, 'class'=> 'btn btn-primary'
+
+    - @topics.each do |topic|
+      .row
+        .pull-left.vote-counter
+          %b
+            0
+            %br
+            votes
+        .pull-left
+          %h4
+            =link_to topic.title, topic_path(topic)
+          %p= topic.description
+          %small
+            Created by
+            %b= topic.user.name
+      .row
+        .col-sm-12
+          %hr
+  .col-md-2
+    =render partial: 'shared/user_profile'
