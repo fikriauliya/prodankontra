@@ -5,7 +5,7 @@
         'vote-status' => '{{vm.vote.my_vote_status}}', 'up-vote-count' => '{{vm.vote.up_vote}}',
         'down-vote-count' => '{{vm.vote.down_vote}}', 'img-style' => '{{vm.voteImgStyle}}'}
     .pull-left
-      %h3{style: 'padding-left: 20px'}= @topic.title
+      %h3{style: 'padding-left: 20px; margin-top:5px'}= @topic.title
     .clearfix
     %hr
     %div{'ng-controller' => 'IndexOpinionController as vm'}
