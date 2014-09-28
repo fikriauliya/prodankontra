@@ -10,7 +10,7 @@
       .row.topic
         .pull-left.vote-counter
           %b
-            0
+            = topic.get_upvotes.count - topic.get_downvotes.count
             %br
             votes
         .pull-left

@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  concern :votable do
+    resources :votes, only: [:index, :create]
+  end
+
   resources :topics do
     resources :opinions
   end
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-      resources :topics do
-        resources :opinions, controller: 'topics/opinions'
+      resources :topics, concerns: :votable, defaults: {model_name: 'Topic'} do
+        resources :opinions, controller: 'topics/opinions', concerns: :votable, defaults: {model_name: 'Opinion'}
       end
     end
   end

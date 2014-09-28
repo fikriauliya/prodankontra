@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
   validates :name, presence: true
+  acts_as_voter
 
   def self.from_omniauth(auth)
     where({provider: auth.provider, uid: auth.uid}).first_or_create do |user|

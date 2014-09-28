@@ -55,3 +55,4 @@ gem 'angularjs-rails'
 gem 'gon'
 
 gem 'quiet_assets', group: :development
+gem 'acts_as_votable', '~> 0.10.0'

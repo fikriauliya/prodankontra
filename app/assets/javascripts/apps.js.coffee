@@ -1,1 +1,1 @@
-topicmApp = angular.module('topicApp', ['opinionServices'])
+topicApp = angular.module('topicApp', ['opinionServices', 'appDirectives', 'voteServices'])

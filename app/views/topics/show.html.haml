@@ -1,6 +1,12 @@
 .row{'ng-app' => 'topicApp'}
   .col-sm-10
-    %h3= @topic.title
+    .pull-left{'ng-controller' => 'ShowTopicController as vm'}
+      %vote-section{'is-owner' => 'vm.problem.is_owner', 'vote-up' => 'vm.vote_up()', 'vote-down' => 'vm.vote_down()',
+        'vote-status' => '{{vm.vote.my_vote_status}}', 'up-vote-count' => '{{vm.vote.up_vote}}',
+        'down-vote-count' => '{{vm.vote.down_vote}}', 'img-style' => '{{vm.voteImgStyle}}'}
+    .pull-left
+      %h3{style: 'padding-left: 20px'}= @topic.title
+    .clearfix
     %hr
     %div{'ng-controller' => 'IndexOpinionController as vm'}
       .col-sm-6
