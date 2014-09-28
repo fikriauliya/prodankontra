@@ -1,29 +1,31 @@
-= form_for [@topic, @opinion], html: {class:'form-horizontal'}  do |f|
-  - if @opinion.errors.any?
-    #error_explanation
-      .alert.alert-danger
-        %h2= "#{pluralize(@opinion.errors.count, "error")} prohibited this opinion from being saved:"
-        %ul
-          - @opinion.errors.full_messages.each do |msg|
-            %li= msg
+.row
+  .col-sm-9
+    = form_for [@topic, @opinion], html: {class:'form-horizontal'}  do |f|
+      - if @opinion.errors.any?
+        #error_explanation
+          .alert.alert-danger
+            %h2= "#{pluralize(@opinion.errors.count, "error")} prohibited this opinion from being saved:"
+            %ul
+              - @opinion.errors.full_messages.each do |msg|
+                %li= msg
 
-  .form-group
-    = f.label :title, class: 'col-sm-2 control-label'
-    = f.hidden_field :is_pro
-    .col-sm-10
-      = f.text_field :title, class: 'form-control'
-  .form-group
-    = f.label :author, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :author, class: 'form-control'
-  .form-group
-    = f.label :source, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :source, class: 'form-control'
-  .form-group
-    = f.label :content, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_area :content, class: 'form-control', style: 'height: 300px'
-  .form-group
-    .col-sm-10.col-sm-offset-2
-      = f.submit 'Save', class: 'btn btn-primary'
+      .form-group
+        = f.label "Judul", class: 'col-sm-2 control-label'
+        = f.hidden_field :is_pro
+        .col-sm-6
+          = f.text_field :title, class: 'form-control', placeholder: "Judul singkat opini Anda"
+      .form-group
+        = f.label "Isi Opini", class: 'col-sm-2 control-label'
+        .col-sm-10
+          = f.text_area :content, class: 'form-control', style: 'height: 300px', placeholder: "Argument opini Anda"
+      .form-group
+        = f.label "Penulis", class: 'col-sm-2 control-label'
+        .col-sm-7
+          = f.text_field :author, class: 'form-control', placeholder: '(Opsional) Nama penulis asli tulisan ini. Kosongkan jika tulisan ini asli dari Anda'
+      .form-group
+        = f.label "Sumber tulisan", class: 'col-sm-2 control-label'
+        .col-sm-8
+          = f.text_field :source, class: 'form-control', placeholder: "(Opsional) Sumber tulisan ini. Kosongkan jika ini tulisan asli dari Anda"
+      .form-group
+        .col-sm-10.col-sm-offset-2
+          = f.submit 'Save', class: 'btn btn-primary'
