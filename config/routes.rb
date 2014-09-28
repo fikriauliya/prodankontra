@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   concern :votable do
-    resources :votes, only: [:index, :create]
+    resources :votes, only: [:index, :create] do
+      resources :opinions, only: [:show]
+    end
   end
 
   resources :topics do

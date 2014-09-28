@@ -16,6 +16,6 @@
       %p.with-newline<
         {{opinion.content | limitTo: 1000}}
       .pull-right
-        %a{'ng-click' => 'vm.showFullOpinion(opinion)', 'class' => 'btn btn-info btn-sm'}
+        %a{'ng-href' => '/topics/{{opinion.topic_id}}/opinions/{{opinion.id}}', 'class' => 'btn btn-info btn-sm'}
           %span.glyphicon.glyphicon-search
           Read more...
