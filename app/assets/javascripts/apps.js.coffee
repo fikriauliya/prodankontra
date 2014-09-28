@@ -1,0 +1,1 @@
+topicmApp = angular.module('topicApp', ['opinionServices'])

@@ -1,0 +1,17 @@
+.panel.panel-default
+  .panel-heading
+    %b
+      {{opinion.title}}
+  .panel-body.opinion
+    .pull-left.vote-counter
+      %b
+        0
+        %br
+        Votes
+    .pull-left
+      %p
+        Penulis:
+        %b
+          {{opinion.author}}
+      %p
+        {{opinion.content}}

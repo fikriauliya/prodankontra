@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    gon.topic_id = @topic.id
   end
 
   # GET /topics/new

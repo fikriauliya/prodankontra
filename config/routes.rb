@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  resources :topics
+  resources :topics do
+    resources :opinions
+  end
+
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :topics do
+        resources :opinions, controller: 'topics/opinions'
+      end
+    end
+  end
 
   get 'profiles/:id', :controller => 'profiles', :action => 'show'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

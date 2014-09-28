@@ -1,6 +1,18 @@
-.vote-counter {
+.topic .vote-counter {
   width:100px;
   text-align: center;
   font-size: 18px;
   margin-top: 20px;
+}
+
+.panel {
+  margin-bottom: 10px !important;
+}
+
+.opinion .vote-counter {
+  width:60px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
