@@ -17,7 +17,7 @@
             =link_to new_topic_opinion_path(@topic, is_pro: true) , "class" => 'btn btn-success' do
               %span.glyphicon.glyphicon-plus
               Add
-        .clear-fix{style: 'margin-top:30px'}
+        .clearfix{style: 'margin-top:30px'}
         %div{'ng-repeat' => 'opinion in vm.pro_opinions.opinions'}
           =render partial: "opinions/show"
       .col-xs-6
@@ -27,7 +27,7 @@
           =link_to new_topic_opinion_path(@topic, is_pro: false), "class" => 'btn btn-danger' do
             %span.glyphicon.glyphicon-plus
             Add
-        .clear-fix{style: 'margin-top:30px'}
+        .clearfix{style: 'margin-top:30px'}
         %div{'ng-repeat' => 'opinion in vm.con_opinions.opinions'}
           =render partial: "opinions/show"
 
