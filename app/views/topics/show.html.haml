@@ -1,5 +1,5 @@
 .row{'ng-app' => 'topicApp'}
-  .col-sm-10
+  .col-xs-10
     .pull-left{'ng-controller' => 'ShowTopicController as vm'}
       %vote-section{'is-owner' => 'vm.problem.is_owner', 'vote-up' => 'vm.vote_up()', 'vote-down' => 'vm.vote_down()',
         'vote-status' => '{{vm.vote.my_vote_status}}', 'up-vote-count' => '{{vm.vote.up_vote}}',
@@ -9,7 +9,7 @@
     .clearfix
     %hr
     %div{'ng-controller' => 'IndexOpinionController as vm'}
-      .col-sm-6
+      .col-xs-6
         %div
           %large
             %b Pro
@@ -20,7 +20,7 @@
         .clear-fix{style: 'margin-top:30px'}
         %div{'ng-repeat' => 'opinion in vm.pro_opinions.opinions'}
           =render partial: "opinions/show"
-      .col-sm-6
+      .col-xs-6
         %large
           %b Kontra
         .pull-right
@@ -31,7 +31,7 @@
         %div{'ng-repeat' => 'opinion in vm.con_opinions.opinions'}
           =render partial: "opinions/show"
 
-  .col-md-2
+  .col-xs-2
     =render partial: 'shared/user_profile'
     %hr
     .panel.panel-primary

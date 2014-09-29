@@ -1,5 +1,5 @@
 .row
-  .col-md-3
+  .col-xs-3
     %h3 Resend confirmation instructions
     = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
       = devise_error_messages!

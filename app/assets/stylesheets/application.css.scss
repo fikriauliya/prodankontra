@@ -52,3 +52,9 @@ body {
   margin-left: 5px;
   font-size: 20px;
 }
+
+@media all and (max-width: 800px){
+  .container-fluid {
+    width: 800px !important;
+  }
+}

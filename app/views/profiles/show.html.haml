@@ -1,15 +1,15 @@
 .row
-  .col-sm-12
+  .col-xs-12
     %h3
       User Profile
 .row
-  .col-sm-2
+  .col-xs-2
     #profile_picture
-  .col-sm-4
-    .col-sm-4 Name
-    .col-sm-8= @profile.user.name
-    .col-sm-4 Email
-    .col-sm-8= @profile.user.email
+  .col-xs-4
+    .col-xs-4 Name
+    .col-xs-8= @profile.user.name
+    .col-xs-4 Email
+    .col-xs-8= @profile.user.email
 
 -if @profile.user.provider == 'facebook'
   :javascript

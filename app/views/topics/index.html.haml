@@ -1,7 +1,7 @@
 .row
 
 .row
-  .col-sm-10
+  .col-xs-10
     .row
       .pull-right{style: 'margin-right: 10px'}
         = link_to 'New Topic', new_topic_path, 'class'=> 'btn btn-primary'
@@ -21,7 +21,7 @@
             Created by
             %b= topic.user.name
       .row
-        .col-sm-12
+        .col-xs-12
           %hr
-  .col-md-2
+  .col-xs-2
     =render partial: 'shared/user_profile'

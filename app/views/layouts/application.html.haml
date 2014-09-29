@@ -3,7 +3,6 @@
   %head
     %meta{charset: "utf-8"}/
     %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
     %meta{content: "", name: "description"}/
     %meta{content: "", name: "author"}/
     %title BootstrapWithDevise
@@ -17,13 +16,8 @@
     .navbar.navbar-inverse.navbar-static-top{role: "navigation"}
       .container-fluid
         .navbar-header
-          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
           =link_to("Home", root_path, 'class' => 'navbar-brand')
-        .navbar-collapse.collapse
+        %div
           %ul.nav.navbar-nav.navbar-right
             %li
               %a{href: "#about"} About
@@ -33,7 +27,6 @@
             -else
               %li
                 =link_to("Log in", new_user_session_path)
-        -#.nav-collapse
     .container-fluid
       -if notice
         .alert.alert-info= notice
