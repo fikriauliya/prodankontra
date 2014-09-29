@@ -5,6 +5,7 @@ class OpinionsController < ApplicationController
   # GET /opinions/1
   # GET /opinions/1.json
   def show
+    @topic = Topic.find(@opinion.topic_id)
     gon.opinion_id = @opinion.id
     gon.topic_id = @opinion.topic_id
   end
