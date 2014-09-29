@@ -16,7 +16,7 @@ topicApp.controller('ShowTopicController', ['TopicVotes',
         vm.vote = data
         (data ,header) ->
           if(data.status = 401)
-            alert("You are not authorized to vote this item")
+            alert("You are not authorized to vote this item. Please log in")
           else
             alert("You need to log in to vote"))
 
@@ -28,11 +28,11 @@ topicApp.controller('ShowTopicController', ['TopicVotes',
         v.$save({topic_id: gon.topic_id},
           (data, header) ->
             vm.vote = data
-            (data ,header) ->
-              if(data.status = 401)
-                alert("You are not authorized to vote this item")
-              else
-                alert("You need to log in to vote"))
+          (data ,header) ->
+            if(data.status = 401)
+              alert("You are not authorized to vote this item. Please log in")
+            else
+              alert("You need to log in to vote"))
 
     vm.vote_down = () ->
       if(vm.vote.my_vote_status == 'down')
@@ -42,11 +42,11 @@ topicApp.controller('ShowTopicController', ['TopicVotes',
         v.$save({topic_id: gon.topic_id},
         (data, header) ->
           vm.vote = data
-          (data ,header) ->
-            if(data.status = 401)
-              alert("You are not authorized to vote this item")
-            else
-              alert("You need to log in to vote"))
+        (data ,header) ->
+          if(data.status = 401)
+            alert("You are not authorized to vote this item. Please log in")
+          else
+            alert("You need to log in to vote"))
 
     vm.vote = TopicVotes.query({topic_id: gon.topic_id})
 
