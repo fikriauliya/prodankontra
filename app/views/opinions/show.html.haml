@@ -21,8 +21,9 @@
         =@opinion.content
   .col-xs-4.opinion{'ng-controller' => 'IndexOpinionController as vm'}
     %b
-      Baca juga pendapat
+      Pendapat
       = if @opinion.is_pro then "kontra" else "pro" end
+      \:
     %br
     %br
     - if @opinion.is_pro
