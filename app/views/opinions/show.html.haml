@@ -1,17 +1,48 @@
-.panel.panel-default
-  .panel-heading
-    %b
-      =@opinion.title
-  .panel-body.opinion
-    .pull-left.vote-counter
-      %b
-        0
-        %br
-        Votes
-    %div
-      %p
-        Penulis:
+.row
+  .col-xs-10
+    .panel.panel-default
+      .panel-heading
         %b
-          =@opinion.author
-      .with-newline<
-        =@opinion.content
+          =@opinion.title
+      .panel-body.opinion
+        .pull-left.vote-counter
+          %b
+            0
+            %br
+            Votes
+        %div
+          %p
+            Penulis:
+            %b
+              =@opinion.author
+          .with-newline<
+            =@opinion.content
+  .col-xs-2
+    =render partial: 'shared/user_profile'
+    %hr
+    .panel.panel-primary
+      .panel-heading
+        %span.glyphicon.glyphicon-th-large
+        %b Opinion information
+      .panel-body
+        Created by
+        %br
+        %b= @opinion.user.name
+        %br
+        %br
+
+        Source
+        %br
+        %b.long-word= @opinion.source
+        %br
+        %br
+
+        Created at
+        %br
+        %b= @opinion.created_at.in_time_zone("Jakarta").strftime("%d %B %Y, %H:%M")
+        %br
+        %br
+
+        Updated at
+        %br
+        %b= @opinion.updated_at.in_time_zone("Jakarta").strftime("%d %B %Y, %H:%M")

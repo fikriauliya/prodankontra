@@ -58,3 +58,7 @@ body {
     width: 800px !important;
   }
 }
+
+.long-word {
+  word-wrap: break-word;
+}
