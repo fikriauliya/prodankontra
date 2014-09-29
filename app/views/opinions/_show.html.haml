@@ -5,7 +5,7 @@
   .panel-body.opinion
     .pull-left.vote-counter
       %b
-        0
+        {{opinion.upvotes_count - opinion.downvotes_count}}
         %br
         Votes
     %div

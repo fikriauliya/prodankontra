@@ -1,22 +1,20 @@
-.row
-  .col-xs-10
-    .panel.panel-default
-      .panel-heading
+.row{'ng-app' => 'topicApp'}
+  .col-xs-10.opinion
+    %h3
+      =@opinion.title
+
+    .pull-left{'ng-controller' => 'ShowOpinionController as vm', style: 'margin-right: 20px'}
+      %vote-section{'is-owner' => 'vm.problem.is_owner', 'vote-up' => 'vm.vote_up()', 'vote-down' => 'vm.vote_down()',
+        'vote-status' => '{{vm.vote.my_vote_status}}', 'up-vote-count' => '{{vm.vote.up_vote}}',
+        'down-vote-count' => '{{vm.vote.down_vote}}', 'img-style' => '{{vm.voteImgStyle}}'}
+
+    %div
+      %p
+        Penulis:
         %b
-          =@opinion.title
-      .panel-body.opinion
-        .pull-left.vote-counter
-          %b
-            0
-            %br
-            Votes
-        %div
-          %p
-            Penulis:
-            %b
-              =@opinion.author
-          .with-newline<
-            =@opinion.content
+          =@opinion.author
+      .with-newline<
+        =@opinion.content
   .col-xs-2
     =render partial: 'shared/user_profile'
     %hr
