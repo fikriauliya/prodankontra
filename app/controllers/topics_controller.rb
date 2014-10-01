@@ -21,6 +21,9 @@ class TopicsController < ApplicationController
 
   # GET /topics/1/edit
   def edit
+    unless current_user == @topic.user
+      redirect_to root_path, alert: "You are not allowed to do this action"
+    end
   end
 
   # POST /topics
@@ -43,6 +46,10 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1
   # PATCH/PUT /topics/1.json
   def update
+    unless current_user == @topic.user
+      redirect_to root_path, alert: "You are not allowed to do this action"
+    end
+
     respond_to do |format|
       if @topic.update(topic_params)
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
@@ -57,6 +64,10 @@ class TopicsController < ApplicationController
   # DELETE /topics/1
   # DELETE /topics/1.json
   def destroy
+    unless current_user == @topic.user
+      redirect_to root_path, alert: "You are not allowed to do this action"
+    end
+
     @topic.destroy
     respond_to do |format|
       format.html { redirect_to topics_url, notice: 'Topic was successfully destroyed.' }

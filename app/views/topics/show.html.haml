@@ -5,8 +5,19 @@
         'vote-status' => '{{vm.vote.my_vote_status}}', 'up-vote-count' => '{{vm.vote.up_vote}}',
         'down-vote-count' => '{{vm.vote.down_vote}}', 'img-style' => '{{vm.voteImgStyle}}'}
     .pull-left
-      %h3{style: 'padding-left: 20px; margin-top:5px'}= @topic.title
+      %h3{style: 'padding-left: 20px; margin-top:5px'}
+        = @topic.title
+
+      - if user_signed_in? and @topic.user == current_user
+        %div{style: 'width: 400px'}
+          = link_to edit_topic_path(@topic), 'class' => 'btn btn-warning btn-sm', style: 'float:left; margin-left: 20px' do
+            %span.glyphicon.glyphicon-edit
+            Edit
+          = button_to topic_path(@topic), method: :delete, data: {confirm: "Are you sure want to delete this?"}, class: 'btn btn-danger btn-sm', style: 'float:left; margin-left: 10px' do
+            %span.glyphicon.glyphicon-trash
+            Delete
     .clearfix
+
     %hr
     %div{'ng-controller' => 'IndexOpinionController as vm'}
       .col-xs-6
