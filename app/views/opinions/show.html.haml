@@ -30,7 +30,7 @@
           =@opinion.author
       .with-newline<
         =@opinion.content
-  .col-xs-4.opinion{'ng-controller' => 'IndexOpinionController as vm'}
+  .col-xs-4.opinion{'ng-controller' => 'IndexOpinionController as vm', 'ng-cloak' => true}
     %b
       Pendapat
       = if @opinion.is_pro then "kontra" else "pro" end

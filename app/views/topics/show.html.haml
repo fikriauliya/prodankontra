@@ -1,6 +1,6 @@
 .row{'ng-app' => 'topicApp'}
   .col-xs-10
-    .pull-left{'ng-controller' => 'ShowTopicController as vm'}
+    .pull-left{'ng-controller' => 'ShowTopicController as vm', 'ng-cloak' => true}
       %vote-section{'is-owner' => 'vm.problem.is_owner', 'vote-up' => 'vm.vote_up()', 'vote-down' => 'vm.vote_down()',
         'vote-status' => '{{vm.vote.my_vote_status}}', 'up-vote-count' => '{{vm.vote.up_vote}}',
         'down-vote-count' => '{{vm.vote.down_vote}}', 'img-style' => '{{vm.voteImgStyle}}'}
@@ -20,7 +20,7 @@
 
     %hr
     %div{'ng-controller' => 'IndexOpinionController as vm'}
-      .col-xs-6
+      .col-xs-6{'ng-cloak' => true}
         %div
           %large
             %b Pro
@@ -31,7 +31,7 @@
         .clearfix{style: 'margin-top:30px'}
         %div{'ng-repeat' => "opinion in vm.pro_opinions.opinions | orderBy:['-(upvotes_count-downvotes_count)','created_at']"}
           =render partial: "opinions/show"
-      .col-xs-6
+      .col-xs-6{'ng-cloak' => true}
         %large
           %b Kontra
         .pull-right
