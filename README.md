@@ -1,4 +1,4 @@
-Source code for: [www.prodankontra.com](www.prodankontra.com)
+Source code for: [http://www.prodankontra.com](www.prodankontra.com)
 
 Kita membaca banyak argumen2 berbobot tentang pro dan kontra yang disampaikan oleh orang2 yang memiliki ilmu tentang topik2 yang dibahas. Bagaimana jika disediakan platform berkualitas buat mereka share2 tulisan tersebut. Ini akan menjadi media pendidikan bagus bagi masyarakat awam untuk melihat dua sisi mata koin. Sehingga pembaca tidak asal komentar hanya atas dasar berita bias yang kurang berbobot.
 
