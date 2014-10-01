@@ -13,3 +13,16 @@ Kita membaca banyak argumen2 berbobot tentang pro dan kontra yang disampaikan ol
 - For simplicity, bisa saja pendapat2 itu disort berdasarkan point & variable waktu. Variable waktu diperlukan agar pendapat2 fresh memiliki kesempatan muncul di atas.
 
 - Oh ya, ini bisa jadi sistem petisi juga. Cukup tambahkan tombol "dukung" di header pro & kontra. Tampilkan counter total dukungannya di situ, nama2 mungkin bisa dihide (ataupun tidak).
+
+Setting up development environment
+-------------------------------------
+1) Fork from this Github
+
+2) Correct config/database.yml to your Postgres configuration
+
+    git clone <your repo>
+    cd prodankontra
+    bundle
+    mv config/application.yml.sample config/application.yml
+    rake db:migrate
+    rails s
