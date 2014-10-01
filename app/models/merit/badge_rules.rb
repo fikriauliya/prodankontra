@@ -21,6 +21,14 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
+      grant_on "opinions#create", badge: 'active_contributor', temporary: true do |opinion|
+        opinion.user.opinions.count >= 5
+      end
+
+      grant_on "opinions#create", badge: 'super_active_contributor', temporary: true do |opinion|
+        opinion.user.opinions.count >= 20
+      end
+
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
       # grant_on 'users#create', badge: 'just-registered', to: :itself

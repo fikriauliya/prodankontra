@@ -6,5 +6,10 @@
       %span.glyphicon.glyphicon-user
       %b= current_user.name
     .panel-body
-      Point:
-      0
+      - if current_user.badges.count > 0
+        Badges:
+        %ul
+          -current_user.badges.each do |badge|
+            %li= badge.name.humanize
+      - else
+        No badge

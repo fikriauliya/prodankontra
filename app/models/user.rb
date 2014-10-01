@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   acts_as_voter
 
+  has_many :opinions
+  has_many :topics
+
   def self.from_omniauth(auth)
     where({provider: auth.provider, uid: auth.uid}).first_or_create do |user|
       if auth.info.email
