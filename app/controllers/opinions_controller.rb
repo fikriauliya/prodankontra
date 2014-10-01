@@ -19,6 +19,11 @@ class OpinionsController < ApplicationController
 
   # GET /opinions/1/edit
   def edit
+    unless current_user == @opinion.user
+      redirect_to root_path, alert: "You are not allowed to do this action"
+    end
+
+    @topic = Topic.find(params[:topic_id])
   end
 
   # POST /opinions
@@ -43,10 +48,16 @@ class OpinionsController < ApplicationController
   # PATCH/PUT /opinions/1
   # PATCH/PUT /opinions/1.json
   def update
+    unless current_user == @opinion.user
+      redirect_to root_path, alert: "You are not allowed to do this action"
+    end
+
+    @topic = Topic.find(params[:topic_id])
+
     respond_to do |format|
       if @opinion.update(opinion_params)
-        format.html { redirect_to @opinion, notice: 'opinion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @opinion }
+        format.html { redirect_to [@topic, @opinion], notice: 'Opinion was successfully updated.' }
+        format.json { render :show, status: :ok, location: @topic }
       else
         format.html { render :edit }
         format.json { render json: @opinion.errors, status: :unprocessable_entity }
@@ -57,9 +68,14 @@ class OpinionsController < ApplicationController
   # DELETE /opinions/1
   # DELETE /opinions/1.json
   def destroy
+    unless current_user == @opinion.user
+      redirect_to root_path, alert: "You are not allowed to do this action"
+    end
+
+    @topic = Topic.find(params[:topic_id])
     @opinion.destroy
     respond_to do |format|
-      format.html { redirect_to opinions_url, notice: 'opinion was successfully destroyed.' }
+      format.html { redirect_to topic_path(@topic), notice: 'Opinion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

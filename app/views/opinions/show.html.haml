@@ -8,8 +8,19 @@
       %vote-section{'is-owner' => 'vm.problem.is_owner', 'vote-up' => 'vm.vote_up()', 'vote-down' => 'vm.vote_down()',
         'vote-status' => '{{vm.vote.my_vote_status}}', 'up-vote-count' => '{{vm.vote.up_vote}}',
         'down-vote-count' => '{{vm.vote.down_vote}}', 'img-style' => '{{vm.voteImgStyle}}'}
-    %h4
-      =@opinion.title
+
+    .pull-left
+      %h4
+        =@opinion.title
+
+      - if user_signed_in? and @opinion.user == current_user
+        %div{style: 'width: 400px'}
+          = link_to edit_topic_opinion_path(@topic, @opinion), 'class' => 'btn btn-warning btn-sm', style: 'float:left;' do
+            %span.glyphicon.glyphicon-edit
+            Edit
+          = button_to topic_opinion_path(@topic, @opinion), method: :delete, data: {confirm: "Are you sure want to delete this?"}, class: 'btn btn-danger btn-sm', style: 'float:left; margin-left: 10px' do
+            %span.glyphicon.glyphicon-trash
+            Delete
     .clearfix
 
     %div{style: 'margin-top:20px'}
