@@ -103,6 +103,8 @@ ActiveRecord::Schema.define(version: 20140929072203) do
     t.string   "name"
     t.string   "image"
     t.string   "external_profile_url"
+    t.integer  "sash_id"
+    t.integer  "level",                  default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

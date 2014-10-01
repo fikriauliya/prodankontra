@@ -1,5 +1,5 @@
 class AddFieldsToUsers < ActiveRecord::Migration
-  def self.upmt
+  def self.up
     add_column :users, :sash_id, :integer
     add_column :users, :level, :integer, :default => 0
   end
