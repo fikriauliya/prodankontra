@@ -13,7 +13,7 @@
             = topic.get_upvotes.count - topic.get_downvotes.count
             %br
             Votes
-        .pull-left
+        %div{style: 'overflow:hidden'}
           %h4
             =link_to topic.title, topic_path(topic)
           %p= topic.description
